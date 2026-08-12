@@ -1,0 +1,186 @@
+<style>
+    *{ box-sizing:border-box; }
+    body{
+        margin:0;
+        background:#f6f8f7;
+        color:#1f2937;
+        font-family:"Segoe UI",Arial,sans-serif;
+        font-size:13px;
+    }
+    a{ text-decoration:none; }
+
+    /* Navbar */
+    .ciit-navbar{
+        background:#0f2e22;
+        padding:10px 26px;
+    }
+    .ciit-brand{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin-right:30px;
+    }
+    .ciit-logo-sub{
+        font-size:9px;
+        letter-spacing:.06em;
+        color:#8fb9a8;
+        text-transform:uppercase;
+    }
+    .ciit-nav-link{
+        color:#cfe3d9 !important;
+        font-size:12.5px;
+        font-weight:500;
+        margin-right:2px;
+        padding:7px 12px !important;
+        border-radius:5px;
+        transition:background .15s ease, color .15s ease;
+    }
+    .ciit-nav-link:hover{
+        background:rgba(255,255,255,.08);
+        color:#fff !important;
+    }
+    .ciit-nav-link.active-link{
+        background:#059669;
+        color:#fff !important;
+        font-weight:600;
+    }
+    .ciit-nav-right{ align-items:center; }
+    .ciit-nav-right a{
+        color:#cfe3d9 !important;
+        font-size:12.5px;
+        margin-left:4px;
+        padding:7px 11px !important;
+        border-radius:5px;
+        cursor:pointer;
+        transition:background .15s ease;
+    }
+    .ciit-nav-right a:hover{
+        background:rgba(255,255,255,.08);
+        color:#fff !important;
+    }
+    .ciit-logout-email{
+        background:rgba(255,255,255,.06);
+        color:#f3a89e !important;
+    }
+    .ciit-logout-email:hover{
+        background:rgba(255,255,255,.12);
+        color:#fff !important;
+    }
+
+    /* Page layout */
+    .ciit-page{ padding:22px 26px; }
+    .ciit-sidebar{
+        background:#fff;
+        border:1px solid #e6ebe8;
+        border-radius:10px;
+        padding:14px;
+    }
+    .ciit-sidebar-list{ border:none; }
+    .ciit-sidebar-list .list-group-item{
+        border:none;
+        background:transparent;
+        padding:0;
+        margin-bottom:3px;
+        border-radius:6px;
+    }
+    .ciit-sidebar-list a{
+        display:flex;
+        align-items:center;
+        gap:9px;
+        color:#42504a;
+        font-size:12.5px;
+        font-weight:500;
+        padding:8px 10px;
+        border-radius:6px;
+        transition:background .15s ease, color .15s ease;
+    }
+    .ciit-sidebar-list a:hover{
+        background:#eaf6f0;
+        color:#059669;
+    }
+    .ciit-sidebar-list a.active-link{
+        background:#059669;
+        color:#fff;
+        font-weight:600;
+    }
+    .ciit-sidebar-icon{
+        width:14px;
+        text-align:center;
+        font-size:12px;
+    }
+
+    /* Content card */
+    .ciit-content{
+        background:#fff;
+        border:1px solid #e6ebe8;
+        border-radius:10px;
+        padding:22px;
+        min-height:65vh;
+    }
+
+    @media (max-width: 991px){
+        .ciit-sidebar{ margin-bottom:14px; }
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg ciit-navbar">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand ciit-brand">
+            <div>
+                <span class="ciit-logo-sub">user system</span>
+            </div>
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+         <div class="collapse navbar-collapse" id="navbarCollapse2">
+            <div class="navbar-nav me-auto">
+                <a class="nav-item nav-link ciit-nav-link" routerLink="/main/dashboard" routerLinkActive="active-link">Dashboard</a>
+                <a class="nav-item nav-link ciit-nav-link" routerLink="/main/user" routerLinkActive="active-link">User</a>
+                <a class="nav-item nav-link ciit-nav-link" routerLink="/main/lead" routerLinkActive="active-link">Lead</a>
+                <a class="nav-item nav-link ciit-nav-link" routerLink="/main/employee" routerLinkActive="active-link">Employee</a>
+            </div>
+            <div class="navbar-nav ciit-nav-right d-flex flex-row">
+                <a class="nav-item nav-link" routerLink="/main/change-password" routerLinkActive="active-link">Change Password</a>
+                <a class="nav-item nav-link ciit-logout-email" (click)="logout()">Logout {{username}}</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="ciit-page">
+    <div class="row g-3">
+        <div class="col-lg-2 col-md-3">
+            <div class="ciit-sidebar">
+                <ul class="list-group ciit-sidebar-list">
+                    <li class="list-group-item">
+                        <a routerLink="/main/dashboard" routerLinkActive="active-link">
+                            <span class="ciit-sidebar-icon">&#9632;</span> Dashboard
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a routerLink="/main/user" routerLinkActive="active-link">
+                            <span class="ciit-sidebar-icon">&#128100;</span> User
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a routerLink="/main/lead" routerLinkActive="active-link">
+                            <span class="ciit-sidebar-icon">&#128101;</span> Lead
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a routerLink="/main/employee" routerLinkActive="active-link">
+                            <span class="ciit-sidebar-icon">&#128188;</span> Employee
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-10 col-md-9">
+            <div class="ciit-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
