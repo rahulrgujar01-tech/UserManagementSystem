@@ -8,6 +8,7 @@ import { AuthRepositoryImpl } from "./Infrastructure/Repositories/Authrepositori
 import { AccountRepository } from "./Domain/Repositories/Accountrepositories";
 import { AccountRepositoryImpl } from "./Infrastructure/Repositories/Accountrepositoriesimple";
 import { authInterceptor } from "./Core/interceptors/AuthInterceptors";
+import { EnquiryRepositoriesimple } from "./Infrastructure/Repositories/Enquiryrepositoriesimple";
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -20,5 +21,6 @@ export const appConfig: ApplicationConfig = {
         // (Angular ko batana padta hai ki jab AuthRepository maanga jaye to AuthRepositoryImpl do)
         { provide: AuthRepository, useClass: AuthRepositoryImpl },
         { provide: AccountRepository, useClass: AccountRepositoryImpl }
+        {provide: Enquiryfollowuprepositories, useClass: EnquiryRepositoriesimple}
     ]
 };

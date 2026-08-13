@@ -5,7 +5,7 @@ import { LogOut } from "./Application/Auth/LogOut";
 // Ye LAYOUT component hai — navbar + sidebar. Login ke baad '/main' route par
 // ye load hota hai, aur iske andar wala <router-outlet> Dashboard/User/Lead/Employee dikhata hai.
 @Component({
-    selector: "app-main-layout",
+    selector: 'app-main-layout',
     standalone: true,
     imports: [RouterOutlet, RouterLink, RouterLinkActive],
     templateUrl: "./Maincomponent.html",

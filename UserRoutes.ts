@@ -1,3 +1,4 @@
+//import { Routes } from "@angular/router";
 import { Routes } from "@angular/router";
 import { LoginClass } from "./Presentation/Account/Login/LoginComponent";
 import { ForgotPasswordClass } from "./Presentation/Account/ForgotPassword/ForgotPasswordComponent";
@@ -6,8 +7,9 @@ import { DashboardComponent } from "./Presentation/Dashboard/DashboardComponent"
 import { UserComponent } from "./Presentation/User/UserComponent";
 import { LeadComponent } from "./Presentation/Lead/LeadComponent";
 import { EmployeeComponent } from "./Presentation/Employee/EmployeeComponent";
-import { MainClass } from "./Maincomponent";
+import { MainClass } from "./Maincomponent"; 
 import { authGuard } from "./Core/guards/AuthGuards";
+import { Enquirylist } from "./Presentation/EnquiryFollowup/EnquiryFollowupList/EnquiryfollowupList";
 
 export const routes: Routes = [
     // Public pages — login ke bina bhi khulenge
@@ -27,6 +29,7 @@ export const routes: Routes = [
             { path: 'lead', component: LeadComponent },
             { path: 'employee', component: EmployeeComponent },
             { path: 'change-password', component: ChangePasswordClass },
+            {path:'enquirylist', component:Enquirylist},
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
         ]
     },
