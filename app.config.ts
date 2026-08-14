@@ -9,6 +9,10 @@ import { AccountRepository } from "./Domain/Repositories/Accountrepositories";
 import { AccountRepositoryImpl } from "./Infrastructure/Repositories/Accountrepositoriesimple";
 import { authInterceptor } from "./Core/interceptors/AuthInterceptors";
 import { EnquiryRepositoriesimple } from "./Infrastructure/Repositories/Enquiryrepositoriesimple";
+import { TrainingCourseRepositorySimple } from "./Infrastructure/Repositories/Trainingcourserepositoriesimpl";
+
+import { TRAINING_COURSE_REPOSITORY } from "./Domain/Repositories/Token/trainingcourserepositorytoken";
+import { ENQUIRY_FOLOWUP_REPOSITORY } from "./Domain/Repositories/Token/enquiryfollowuprepositoriestoken";
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -20,7 +24,8 @@ export const appConfig: ApplicationConfig = {
         // Abstract repository -> concrete implementation mapping
         // (Angular ko batana padta hai ki jab AuthRepository maanga jaye to AuthRepositoryImpl do)
         { provide: AuthRepository, useClass: AuthRepositoryImpl },
-        { provide: AccountRepository, useClass: AccountRepositoryImpl }
-        {provide: Enquiryfollowuprepositories, useClass: EnquiryRepositoriesimple}
+        { provide: AccountRepository, useClass: AccountRepositoryImpl },
+        { provide: ENQUIRY_FOLOWUP_REPOSITORY, useClass: EnquiryRepositoriesimple},
+        { provide: TRAINING_COURSE_REPOSITORY ,useClass: TrainingCourseRepositorySimple}
     ]
 };

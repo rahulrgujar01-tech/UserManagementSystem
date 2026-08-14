@@ -10,6 +10,7 @@ import { EmployeeComponent } from "./Presentation/Employee/EmployeeComponent";
 import { MainClass } from "./Maincomponent"; 
 import { authGuard } from "./Core/guards/AuthGuards";
 import { Enquirylist } from "./Presentation/EnquiryFollowup/EnquiryFollowupList/EnquiryfollowupList";
+import { Enquiryform } from "./Presentation/EnquiryFollowup/EnquiryFollowupFrom/EnquiryFollowupFrom";
 
 export const routes: Routes = [
     // Public pages — login ke bina bhi khulenge
@@ -29,7 +30,11 @@ export const routes: Routes = [
             { path: 'lead', component: LeadComponent },
             { path: 'employee', component: EmployeeComponent },
             { path: 'change-password', component: ChangePasswordClass },
+            
             {path:'enquirylist', component:Enquirylist},
+            { path: 'enquiry-followup/create',component: Enquiryform},
+            {path: 'enquiry-followup/edit/:id',component: Enquiryform},
+           // {path:'course', component:CourseClass},
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
         ]
     },
